@@ -1,10 +1,11 @@
 /* =========================================================
    EXPLORA O MUNDO DOS DINOSSAUROS
-   STYLE.CSS
+   CSS PRINCIPAL
    ========================================================= */
 
+
 /* =========================================================
-   1. CONFIGURAÇÕES GERAIS
+   1. RESET
    ========================================================= */
 
 * {
@@ -18,21 +19,21 @@ html {
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    background: #f4f1e8;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f1e8;
     color: #26352a;
-    line-height: 1.7;
+    line-height: 1.6;
     transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.modo-escuro {
+    background: #101810;
+    color: #e9f0e9;
 }
 
 img {
     max-width: 100%;
     display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
 }
 
 button,
@@ -41,93 +42,171 @@ textarea {
     font-family: inherit;
 }
 
-/* =========================================================
-   2. CABEÇALHO
-   ========================================================= */
-
-header {
-    width: 100%;
-    min-height: 75px;
-    padding: 15px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-
-    background: #1d3825;
-    color: white;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-
-    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+button {
+    cursor: pointer;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
 /* =========================================================
-   3. LOGO
+   2. CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   3. CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(20, 50, 28, 0.95);
+
+    backdrop-filter: blur(12px);
+
+    color: white;
+
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease,
+        padding 0.3s ease;
+}
+
+.cabecalho.rolando {
+    background: rgba(11, 30, 17, 0.98);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cabecalho-conteudo {
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   4. LOGO
    ========================================================= */
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 1.2rem;
+
+    font-weight: 800;
+
+    color: white;
+
     white-space: nowrap;
 }
 
+.logo:first-letter {
+    font-size: 1.7rem;
+}
+
+
 /* =========================================================
-   4. MENU
+   5. MENU
    ========================================================= */
 
-nav {
+.menu {
     display: flex;
+
     align-items: center;
+
     justify-content: center;
-    gap: 25px;
+
+    gap: 28px;
 }
 
-nav a {
+.menu a {
     position: relative;
-    color: white;
+
+    color: #edf5ed;
+
     font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+
+    font-weight: 600;
+
+    padding: 8px 0;
+
+    transition:
+        color 0.3s ease;
 }
 
-nav a::after {
+.menu a::after {
     content: "";
+
     position: absolute;
-    width: 0;
-    height: 2px;
-    background: #f4b942;
-    bottom: -6px;
+
     left: 50%;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #e8b94f;
+
     transform: translateX(-50%);
+
     transition: width 0.3s ease;
 }
 
-nav a:hover {
-    color: #f4b942;
+.menu a:hover {
+    color: #e8b94f;
 }
 
-nav a:hover::after {
+.menu a:hover::after {
     width: 100%;
 }
 
+
 /* =========================================================
-   5. BOTÃO DARK MODE
+   6. BOTÃO DE TEMA
    ========================================================= */
 
-#darkMode {
-    border: none;
-    background: #f4b942;
-    color: #1d3825;
+.botao-tema {
+    width: 44px;
 
-    width: 42px;
-    height: 42px;
+    height: 44px;
+
+    border: 2px solid rgba(255,255,255,0.25);
 
     border-radius: 50%;
 
-    cursor: pointer;
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
     font-size: 1.1rem;
 
     transition:
@@ -135,398 +214,1331 @@ nav a:hover::after {
         background 0.3s ease;
 }
 
-#darkMode:hover {
-    transform: rotate(20deg) scale(1.08);
-    background: #ffffff;
+.botao-tema:hover {
+    transform: rotate(15deg) scale(1.08);
+
+    background: #e8b94f;
+
+    color: #18311e;
 }
 
+
 /* =========================================================
-   6. BANNER PRINCIPAL
+   7. HERO
    ========================================================= */
 
-.banner {
-    min-height: 620px;
+.hero {
+    position: relative;
 
-    display: flex;
-    align-items: center;
+    min-height: 760px;
 
-    padding: 70px 8%;
+    overflow: hidden;
 
     background:
         linear-gradient(
-            rgba(17, 48, 26, 0.72),
-            rgba(17, 48, 26, 0.72)
-        ),
-        url("img/banner.jpg");
-
-    background-size: cover;
-    background-position: center;
+            120deg,
+            #122f1b 0%,
+            #285638 45%,
+            #4c7546 100%
+        );
 
     color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding-top: 76px;
 }
 
-.textoBanner {
-    max-width: 720px;
-    animation: aparecer 1s ease;
+.hero-fundo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(238, 190, 75, 0.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,255,255,0.06),
+            transparent 30%
+        );
+
+    pointer-events: none;
 }
 
-.textoBanner h1 {
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    line-height: 1.1;
-    margin-bottom: 25px;
+.hero-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 50px;
 }
 
-.textoBanner p {
-    max-width: 650px;
-    font-size: 1.15rem;
-    margin-bottom: 35px;
-}
 
 /* =========================================================
-   7. BOTÕES
+   8. HERO TEXTO
    ========================================================= */
 
-.botao {
+.hero-texto {
+    animation: entradaTexto 0.9s ease;
+}
+
+.tag {
     display: inline-block;
 
-    padding: 13px 28px;
+    padding: 8px 15px;
 
-    background: #f4b942;
-    color: #1d3825;
+    margin-bottom: 20px;
 
     border-radius: 30px;
 
-    font-weight: 700;
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    color: #f2c75e;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(3rem, 6vw, 5.5rem);
+
+    line-height: 1.02;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 strong {
+    display: block;
+
+    color: #efc455;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: #dce9de;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   9. BOTÕES DO HERO
+   ========================================================= */
+
+.hero-botoes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+.botao {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 12px 23px;
+
+    border-radius: 30px;
+
+    font-weight: 800;
+
+    border: 2px solid transparent;
 
     transition:
         transform 0.3s ease,
         background 0.3s ease,
+        color 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .botao:hover {
-    background: #ffffff;
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
+.botao-principal {
+    background: #edbd48;
+
+    color: #17311d;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15);
+}
+
+.botao-principal:hover {
+    background: #fff;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.2);
+}
+
+.botao-secundario {
+    background: transparent;
+
+    border-color: rgba(255,255,255,0.45);
+
+    color: white;
+}
+
+.botao-secundario:hover {
+    background: white;
+
+    color: #17311d;
+}
+
+
 /* =========================================================
-   8. SEÇÕES
+   10. DINOSSAURO DO HERO
    ========================================================= */
 
-section {
-    width: 100%;
-    max-width: 1200px;
+.hero-dino {
+    position: relative;
 
-    margin: 0 auto;
+    min-height: 500px;
 
-    padding: 80px 6%;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
-section h2 {
-    text-align: center;
+.dino-circulo {
+    width: 390px;
 
-    font-size: 2.3rem;
+    height: 390px;
 
-    margin-bottom: 30px;
+    border-radius: 50%;
 
-    color: #244b2d;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #6f985d,
+            #315f3b 65%,
+            #21492d
+        );
+
+    border:
+        12px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.3);
+
+    animation:
+        flutuar 4s ease-in-out infinite;
 }
 
-section h2::after {
-    content: "";
+.dino-circulo span {
+    font-size: 12rem;
 
-    display: block;
-
-    width: 70px;
-    height: 4px;
-
-    background: #f4b942;
-
-    margin: 12px auto 0;
-
-    border-radius: 10px;
+    filter:
+        drop-shadow(
+            0 20px 15px rgba(0,0,0,0.3)
+        );
 }
+
+.folha {
+    position: absolute;
+
+    font-size: 4rem;
+
+    opacity: 0.8;
+
+    animation:
+        flutuar 5s ease-in-out infinite;
+}
+
+.folha-1 {
+    top: 15%;
+
+    left: 5%;
+}
+
+.folha-2 {
+    bottom: 10%;
+
+    right: 5%;
+
+    animation-delay: 1s;
+}
+
+.folha-3 {
+    top: 5%;
+
+    right: 10%;
+
+    font-size: 3rem;
+
+    animation-delay: 2s;
+}
+
 
 /* =========================================================
-   9. PESQUISA
+   11. ONDA DO HERO
+   ========================================================= */
+
+.hero-onda {
+    position: absolute;
+
+    bottom: -2px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    background: #f5f1e8;
+
+    clip-path:
+        ellipse(75% 60% at 50% 100%);
+}
+
+
+/* =========================================================
+   12. ESTATÍSTICAS
+   ========================================================= */
+
+.estatisticas {
+    position: relative;
+
+    z-index: 5;
+
+    margin-top: -1px;
+
+    background: #f5f1e8;
+
+    padding: 35px 0 55px;
+}
+
+.estatisticas-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.estatistica {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.07);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.estatistica:hover {
+    transform: translateY(-5px);
+}
+
+.estatistica-icone {
+    width: 50px;
+
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #e8f0e5;
+
+    font-size: 1.5rem;
+}
+
+.estatistica strong {
+    display: block;
+
+    color: #285a35;
+
+    font-size: 1.2rem;
+}
+
+.estatistica div > span {
+    color: #748078;
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   13. SEÇÕES
+   ========================================================= */
+
+.secao {
+    padding: 100px 0;
+}
+
+.titulo-secao {
+    max-width: 750px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.titulo-secao > span {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #b18425;
+
+    font-size: 0.78rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    color: #21452b;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1.15;
+
+    margin-bottom: 18px;
+}
+
+.titulo-secao p {
+    color: #68756c;
+
+    font-size: 1.05rem;
+}
+
+.titulo-branco > span {
+    color: #efc455;
+}
+
+.titulo-branco h2 {
+    color: white;
+}
+
+.titulo-branco p {
+    color: #c8d7ca;
+}
+
+
+/* =========================================================
+   14. SOBRE
+   ========================================================= */
+
+.sobre {
+    background: #f5f1e8;
+}
+
+.sobre-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.sobre-imagem {
+    position: relative;
+
+    min-height: 470px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.sobre-card-grande {
+    width: min(100%, 430px);
+
+    height: 430px;
+
+    border-radius: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dbe7d5,
+            #9db890
+        );
+
+    box-shadow:
+        20px 25px 60px rgba(42,70,45,0.15);
+
+    overflow: hidden;
+}
+
+.sobre-emoji {
+    font-size: 12rem;
+
+    filter:
+        drop-shadow(
+            0 20px 10px rgba(0,0,0,0.15)
+        );
+}
+
+.sobre-card-grande span {
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.55);
+
+    color: #31583a;
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.sobre-folha {
+    position: absolute;
+
+    bottom: 20px;
+
+    right: 10px;
+
+    font-size: 5rem;
+
+    transform: rotate(-20deg);
+}
+
+.pequeno-titulo {
+    color: #b18425;
+
+    font-size: 0.78rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.sobre-texto h3 {
+    margin:
+        12px 0 20px;
+
+    color: #244b2d;
+
+    font-size: 2.2rem;
+}
+
+.sobre-texto > p {
+    margin-bottom: 15px;
+
+    color: #647066;
+}
+
+.sobre-lista {
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.sobre-lista div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.sobre-lista span {
+    width: 25px;
+
+    height: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcebd9;
+
+    color: #367344;
+
+    font-weight: bold;
+}
+
+.sobre-lista p {
+    color: #536056;
+}
+
+
+/* =========================================================
+   15. SEÇÃO DINOSSAUROS
+   ========================================================= */
+
+.secao-dinossauros {
+    max-width: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #173720,
+            #2d6040
+        );
+
+    color: white;
+}
+
+
+/* =========================================================
+   16. PESQUISA
    ========================================================= */
 
 .pesquisa {
-    max-width: 800px;
-    text-align: center;
+    max-width: 650px;
+
+    margin: 0 auto 25px;
 }
 
-#campoPesquisa {
+.pesquisa label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #dce9de;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+}
+
+#campo-pesquisa {
     width: 100%;
 
-    padding: 17px 22px;
+    height: 56px;
 
-    border: 2px solid #d6d1c4;
+    padding: 0 20px;
+
+    border: 2px solid rgba(255,255,255,0.18);
+
+    border-radius: 15px;
+
+    outline: none;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 1rem;
+
+    transition:
+        border 0.3s ease,
+        background 0.3s ease;
+}
+
+#campo-pesquisa::placeholder {
+    color: #b7c7ba;
+}
+
+#campo-pesquisa:focus {
+    border-color: #edbd48;
+
+    background: rgba(255,255,255,0.14);
+}
+
+
+/* =========================================================
+   17. FILTROS
+   ========================================================= */
+
+.filtros {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 40px;
+}
+
+.filtro {
+    border: 1px solid rgba(255,255,255,0.25);
 
     border-radius: 30px;
 
-    outline: none;
+    padding: 9px 17px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-weight: 700;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.filtro:hover {
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,0.18);
+}
+
+.filtro.ativo {
+    background: #edbd48;
+
+    color: #17311d;
+
+    border-color: #edbd48;
+}
+
+
+/* =========================================================
+   18. CARDS DOS DINOSSAUROS
+   ========================================================= */
+
+.cards-dinossauros {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.card-dino {
+    overflow: hidden;
+
+    border-radius: 22px;
 
     background: white;
 
     color: #26352a;
 
-    font-size: 1rem;
-
-    transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-#campoPesquisa:focus {
-    border-color: #4d7b55;
-
     box-shadow:
-        0 0 0 4px rgba(77, 123, 85, 0.15);
-}
-
-/* =========================================================
-   10. HISTÓRIA
-   ========================================================= */
-
-#historia {
-    max-width: 900px;
-    text-align: center;
-}
-
-#historia p {
-    font-size: 1.05rem;
-    color: #526158;
-}
-
-/* =========================================================
-   11. CARDS
-   ========================================================= */
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 30px;
-
-    margin-top: 45px;
-}
-
-.card {
-    background: white;
-
-    border-radius: 18px;
-
-    overflow: hidden;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.08);
+        0 15px 35px rgba(0,0,0,0.15);
 
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
-
-    border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow 0.35s ease,
+        opacity 0.5s ease;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.card-dino:hover {
+    transform: translateY(-9px);
 
     box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.15);
+        0 25px 50px rgba(0,0,0,0.25);
 }
 
-.card img {
-    width: 100%;
-    height: 220px;
 
-    object-fit: cover;
+/* =========================================================
+   19. IMAGENS DOS CARDS
+   ========================================================= */
 
-    transition: transform 0.5s ease;
+.card-imagem {
+    position: relative;
+
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
 }
 
-.card:hover img {
-    transform: scale(1.06);
+.card-trex {
+    background:
+        linear-gradient(
+            135deg,
+            #789b62,
+            #304f30
+        );
 }
 
-.card h3 {
+.card-triceratops {
+    background:
+        linear-gradient(
+            135deg,
+            #b9c987,
+            #668455
+        );
+}
+
+.card-raptor {
+    background:
+        linear-gradient(
+            135deg,
+            #777c53,
+            #343e2c
+        );
+}
+
+.card-braquio {
+    background:
+        linear-gradient(
+            135deg,
+            #a4bd82,
+            #58794d
+        );
+}
+
+.card-estego {
+    background:
+        linear-gradient(
+            135deg,
+            #c5a26e,
+            #65734c
+        );
+}
+
+.card-ptero {
+    background:
+        linear-gradient(
+            135deg,
+            #8eb5c1,
+            #435e69
+        );
+}
+
+.card-emoji {
+    font-size: 8rem;
+
+    filter:
+        drop-shadow(
+            0 20px 12px rgba(0,0,0,0.2)
+        );
+
+    transition:
+        transform 0.4s ease;
+}
+
+.card-dino:hover .card-emoji {
+    transform:
+        scale(1.1)
+        rotate(-3deg);
+}
+
+.badge {
+    position: absolute;
+
+    top: 18px;
+
+    left: 18px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.9);
+
+    color: #31583a;
+
+    font-size: 0.68rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   20. CONTEÚDO DOS CARDS
+   ========================================================= */
+
+.card-conteudo {
+    padding: 24px;
+}
+
+.periodo {
+    color: #b18425;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.card-conteudo h3 {
+    margin:
+        7px 0 10px;
+
     color: #244b2d;
 
-    font-size: 1.35rem;
-
-    padding:
-        22px 22px 5px;
+    font-size: 1.45rem;
 }
 
-.card p {
-    color: #647066;
+.card-conteudo p {
+    color: #657067;
 
-    padding:
-        0 22px 20px;
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+
+    min-height: 95px;
 }
 
-.card button {
+.card-info {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
     margin:
-        0 22px 25px;
+        18px 0;
+}
 
-    padding:
-        10px 20px;
+.card-info span {
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background: #edf2eb;
+
+    color: #4f6054;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+.botao-card {
+    width: 100%;
+
+    padding: 12px;
 
     border: none;
 
-    border-radius: 25px;
+    border-radius: 12px;
 
-    background: #2e653a;
+    background: #2d6339;
+
     color: white;
 
-    font-weight: 600;
-
-    cursor: pointer;
+    font-weight: 800;
 
     transition:
         background 0.3s ease,
         transform 0.3s ease;
 }
 
-.card button:hover {
-    background: #f4b942;
-    color: #1d3825;
+.botao-card:hover {
+    background: #e7b746;
+
+    color: #1b321f;
 
     transform: translateY(-2px);
 }
 
+
 /* =========================================================
-   12. CURIOSIDADES
+   21. MENSAGEM DE PESQUISA
    ========================================================= */
 
-.lista {
+.mensagem-pesquisa {
+    display: none;
+
+    padding: 25px;
+
+    margin-top: 25px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.1);
+
+    color: #e5eee6;
+}
+
+
+/* =========================================================
+   22. PERÍODOS
+   ========================================================= */
+
+.periodos {
+    background: #f5f1e8;
+}
+
+.linha-do-tempo {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+        repeat(3, 1fr);
 
     gap: 25px;
 
-    margin-top: 40px;
+    position: relative;
 }
 
-.lista > div {
-    background: #e7eadf;
+.periodo-card {
+    position: relative;
 
-    padding: 30px;
+    padding: 35px 28px;
 
-    border-radius: 18px;
+    border-radius: 22px;
 
-    border-left: 5px solid #4d7b55;
+    background: white;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.lista > div:hover {
-    transform: translateY(-6px);
+    border:
+        1px solid #e0ded5;
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.08);
+        0 10px 30px rgba(0,0,0,0.06);
+
+    transition:
+        transform 0.3s ease;
 }
 
-.lista h3 {
-    color: #244b2d;
+.periodo-card:hover {
+    transform: translateY(-7px);
+}
+
+.periodo-card.destaque {
+    background:
+        linear-gradient(
+            145deg,
+            #2e653b,
+            #1d4528
+        );
+
+    color: white;
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 40px rgba(34,74,43,0.25);
+}
+
+.periodo-card.destaque:hover {
+    transform: translateY(-15px);
+}
+
+.periodo-numero {
+    color: #d6a939;
+
+    font-size: 0.8rem;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+}
+
+.periodo-data {
+    display: block;
 
     margin-bottom: 10px;
+
+    color: #89958b;
+
+    font-size: 0.78rem;
 }
 
-.lista p {
-    color: #5e6a61;
+.periodo-card.destaque .periodo-data {
+    color: #bdcebf;
 }
+
+.periodo-card h3 {
+    margin-bottom: 12px;
+
+    color: #244b2d;
+
+    font-size: 1.6rem;
+}
+
+.periodo-card.destaque h3 {
+    color: white;
+}
+
+.periodo-card p {
+    color: #667269;
+}
+
+.periodo-card.destaque p {
+    color: #cedbce;
+}
+
 
 /* =========================================================
-   13. ESTATÍSTICAS
+   23. CURIOSIDADES
    ========================================================= */
 
-.estatisticas {
+.curiosidades {
     max-width: none;
 
     background:
         linear-gradient(
             135deg,
-            #1d3825,
-            #315d3b
+            #193c23,
+            #2f6340
         );
-
-    color: white;
-
-    text-align: center;
 }
 
-.estatisticas h2 {
-    color: white;
-}
-
-.numeros {
-    max-width: 1100px;
-
-    margin: 50px auto 0;
-
+.curiosidades-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(4, minmax(0, 1fr));
+        repeat(3, 1fr);
 
-    gap: 30px;
+    gap: 20px;
 }
 
-.numeros div {
-    padding: 20px;
+.curiosidade-card {
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
-.numeros h3 {
-    color: #f4b942;
+.curiosidade-card:hover {
+    transform: translateY(-7px);
 
-    font-size: 2rem;
-
-    margin-bottom: 8px;
+    background: rgba(255,255,255,0.13);
 }
 
-.numeros p {
-    color: #e8eee8;
-}
-
-/* =========================================================
-   14. FORMULÁRIO
-   ========================================================= */
-
-#contato {
-    max-width: 800px;
-}
-
-form {
+.curiosidade-icone {
     display: flex;
 
-    flex-direction: column;
+    width: 55px;
 
-    gap: 18px;
+    height: 55px;
 
-    margin-top: 40px;
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background: #edbd48;
+
+    font-size: 1.5rem;
 }
 
-form input,
-form textarea {
+.curiosidade-card h3 {
+    color: white;
+
+    font-size: 1.25rem;
+
+    margin-bottom: 10px;
+}
+
+.curiosidade-card p {
+    color: #c7d7ca;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   24. QUIZ
+   ========================================================= */
+
+.quiz {
+    background: #f5f1e8;
+}
+
+.quiz-box {
+    position: relative;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 1fr 250px;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 55px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e1ecd9,
+            #c8dbc0
+        );
+
+    box-shadow:
+        0 20px 50px rgba(42,70,45,0.1);
+}
+
+.quiz-texto h2 {
+    max-width: 600px;
+
+    margin:
+        10px 0 15px;
+
+    color: #21452b;
+
+    font-size: 2.3rem;
+
+    line-height: 1.2;
+}
+
+.quiz-texto p {
+    max-width: 600px;
+
+    margin-bottom: 25px;
+
+    color: #607063;
+}
+
+.quiz-icone {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 9rem;
+}
+
+
+/* =========================================================
+   25. CONTATO
+   ========================================================= */
+
+.contato {
+    background: #f5f1e8;
+}
+
+.formulario {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.07);
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #294d31;
+
+    font-size: 0.9rem;
+
+    font-weight: 800;
+}
+
+.campo input,
+.campo textarea {
     width: 100%;
 
-    padding: 16px 18px;
+    padding: 14px 16px;
 
-    border: 2px solid #d6d1c4;
+    border: 2px solid #dfe4dc;
 
     border-radius: 12px;
 
     outline: none;
 
-    background: white;
+    background: #fbfcfa;
 
     color: #26352a;
 
@@ -537,102 +1549,171 @@ form textarea {
         box-shadow 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus {
-    border-color: #4d7b55;
+.campo input {
+    height: 52px;
+}
+
+.campo textarea {
+    resize: vertical;
+
+    min-height: 150px;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: #4d8257;
 
     box-shadow:
-        0 0 0 4px rgba(77, 123, 85, 0.12);
+        0 0 0 4px rgba(77,130,87,0.12);
 }
 
-form textarea {
-    min-height: 160px;
-
-    resize: vertical;
-}
-
-form button {
-    align-self: center;
+.formulario > button {
+    width: 100%;
 
     border: none;
-
-    padding: 13px 35px;
-
-    border-radius: 30px;
-
-    background: #2e653a;
-
-    color: white;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease;
 }
 
-form button:hover {
-    background: #f4b942;
-
-    color: #1d3825;
-
-    transform: translateY(-3px);
-}
 
 /* =========================================================
-   15. RODAPÉ
+   26. RODAPÉ
    ========================================================= */
 
-footer {
-    background: #14271a;
+.rodape {
+    background: #102719;
 
     color: white;
-
-    text-align: center;
-
-    padding: 50px 20px;
 }
 
-footer h3 {
-    color: #f4b942;
+.rodape-grid {
+    display: grid;
 
-    font-size: 1.4rem;
+    grid-template-columns:
+        1.6fr 1fr 1fr 1fr;
+
+    gap: 40px;
+
+    padding-top: 65px;
+
+    padding-bottom: 55px;
+}
+
+.rodape-logo {
+    margin-bottom: 20px;
+}
+
+.rodape-coluna > p {
+    max-width: 330px;
+
+    color: #b9c8bb;
+
+    font-size: 0.9rem;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 18px;
+
+    color: #edbd48;
+
+    font-size: 1rem;
+}
+
+.rodape-coluna > a:not(.logo) {
+    display: block;
 
     margin-bottom: 10px;
+
+    color: #c4d1c6;
+
+    font-size: 0.88rem;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
-footer p {
-    color: #c9d2ca;
+.rodape-coluna > a:not(.logo):hover {
+    color: #edbd48;
 
-    margin: 5px 0;
+    transform: translateX(4px);
 }
+
+.tecnologias {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.tecnologias span {
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: #d4dfd5;
+
+    font-size: 0.7rem;
+}
+
+.rodape-final {
+    padding: 20px 0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.rodape-final .container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rodape-final p {
+    color: #8fa092;
+
+    font-size: 0.75rem;
+}
+
 
 /* =========================================================
-   16. BOTÃO VOLTAR AO TOPO
+   27. BOTÃO VOLTAR AO TOPO
    ========================================================= */
 
-#topo {
+.botao-topo {
     position: fixed;
 
     right: 25px;
+
     bottom: 25px;
 
-    width: 48px;
-    height: 48px;
+    z-index: 900;
+
+    width: 50px;
+
+    height: 50px;
 
     border: none;
 
     border-radius: 50%;
 
-    background: #f4b942;
+    background: #edbd48;
 
-    color: #1d3825;
+    color: #17311d;
 
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 
-    cursor: pointer;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.2);
 
     opacity: 0;
 
@@ -644,11 +1725,9 @@ footer p {
         opacity 0.3s ease,
         visibility 0.3s ease,
         transform 0.3s ease;
-
-    z-index: 900;
 }
 
-#topo.mostrar {
+.botao-topo.visivel {
     opacity: 1;
 
     visibility: visible;
@@ -656,280 +1735,496 @@ footer p {
     transform: translateY(0);
 }
 
-#topo:hover {
-    background: #2e653a;
+.botao-topo:hover {
+    background: #2d6339;
 
     color: white;
 
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 }
 
+
 /* =========================================================
-   17. ANIMAÇÕES
+   28. ANIMAÇÕES
    ========================================================= */
 
-@keyframes aparecer {
+.card-dino,
+.curiosidade-card,
+.periodo-card,
+.estatistica {
+    opacity: 0;
+
+    transform: translateY(30px);
+}
+
+.card-dino.aparecer,
+.curiosidade-card.aparecer,
+.periodo-card.aparecer,
+.estatistica.aparecer {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+@keyframes entradaTexto {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+
+        transform: translateY(35px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
 
 }
 
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
 /* =========================================================
-   18. ELEMENTOS ESCONDIDOS PELA PESQUISA
+   29. MODO ESCURO
    ========================================================= */
 
-.card.oculto {
-    display: none;
+body.modo-escuro .hero-onda {
+    background: #101810;
 }
 
-/* =========================================================
-   19. MODO ESCURO
-   ========================================================= */
-
-body.dark {
-    background: #111713;
-
-    color: #e5ebe5;
+body.modo-escuro .estatisticas {
+    background: #101810;
 }
 
-body.dark header {
-    background: #0a120d;
-}
-
-body.dark section h2 {
-    color: #dce9dc;
-}
-
-body.dark #historia p {
-    color: #b9c4ba;
-}
-
-body.dark .pesquisa {
-    background: #111713;
-}
-
-body.dark #campoPesquisa {
-    background: #1b251e;
-
-    color: #f0f5f0;
-
-    border-color: #3a493d;
-}
-
-body.dark .card {
-    background: #1b251e;
-
-    border-color: #344137;
+body.modo-escuro .estatistica {
+    background: #1b281d;
 
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.3);
+        0 10px 30px rgba(0,0,0,0.3);
 }
 
-body.dark .card h3 {
-    color: #cfe4d1;
+body.modo-escuro .estatistica-icone {
+    background: #26372a;
 }
 
-body.dark .card p {
-    color: #aebbb0;
+body.modo-escuro .estatistica strong {
+    color: #cce1cd;
 }
 
-body.dark .lista > div {
-    background: #1b251e;
-
-    border-left-color: #6c9f74;
+body.modo-escuro .estatistica div > span {
+    color: #9eaca0;
 }
 
-body.dark .lista h3 {
-    color: #d0e3d2;
+body.modo-escuro .sobre,
+body.modo-escuro .periodos,
+body.modo-escuro .quiz,
+body.modo-escuro .contato {
+    background: #101810;
 }
 
-body.dark .lista p {
-    color: #adb9ae;
+body.modo-escuro .titulo-secao h2,
+body.modo-escuro .sobre-texto h3 {
+    color: #dce9dd;
 }
 
-body.dark form input,
-body.dark form textarea {
-    background: #1b251e;
+body.modo-escuro .titulo-secao p,
+body.modo-escuro .sobre-texto > p {
+    color: #aebaae;
+}
+
+body.modo-escuro .sobre-lista p {
+    color: #b6c2b7;
+}
+
+body.modo-escuro .sobre-card-grande {
+    background:
+        linear-gradient(
+            145deg,
+            #354a37,
+            #263927
+        );
+}
+
+body.modo-escuro .sobre-card-grande span {
+    background: rgba(255,255,255,0.1);
+
+    color: #dceadd;
+}
+
+body.modo-escuro .periodo-card {
+    background: #1b281d;
+
+    border-color: #304132;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+}
+
+body.modo-escuro .periodo-card h3 {
+    color: #dce9dd;
+}
+
+body.modo-escuro .periodo-card p {
+    color: #aab7ac;
+}
+
+body.modo-escuro .quiz-box {
+    background:
+        linear-gradient(
+            135deg,
+            #263a29,
+            #304a34
+        );
+}
+
+body.modo-escuro .quiz-texto h2 {
+    color: #dce9dd;
+}
+
+body.modo-escuro .quiz-texto p {
+    color: #b6c4b8;
+}
+
+body.modo-escuro .formulario {
+    background: #1b281d;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.3);
+}
+
+body.modo-escuro .campo label {
+    color: #d6e4d8;
+}
+
+body.modo-escuro .campo input,
+body.modo-escuro .campo textarea {
+    background: #121c14;
+
+    border-color: #354638;
 
     color: white;
-
-    border-color: #3a493d;
 }
 
+body.modo-escuro .card-dino {
+    background: #1b281d;
+
+    color: #e7eee8;
+}
+
+body.modo-escuro .card-conteudo h3 {
+    color: #d5e5d7;
+}
+
+body.modo-escuro .card-conteudo p {
+    color: #aebbae;
+}
+
+body.modo-escuro .card-info span {
+    background: #2b3a2d;
+
+    color: #bfcdbf;
+}
+
+
 /* =========================================================
-   20. RESPONSIVIDADE - TABLETS
+   30. TABLETS
    ========================================================= */
 
 @media (max-width: 1000px) {
 
-    header {
-        padding:
-            15px 4%;
-    }
-
-    .logo {
-        font-size: 1.05rem;
-    }
-
-    nav {
+    .menu {
         gap: 15px;
     }
 
-    nav a {
-        font-size: 0.85rem;
+    .menu a {
+        font-size: 0.82rem;
     }
 
-    .cards {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .hero-conteudo {
+        grid-template-columns: 1fr;
+
+        text-align: center;
     }
 
-    .lista {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+    .hero-texto {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
     }
 
-    .numeros {
+    .hero p {
+        max-width: 700px;
+    }
+
+    .hero-dino {
+        min-height: 350px;
+    }
+
+    .dino-circulo {
+        width: 300px;
+
+        height: 300px;
+    }
+
+    .dino-circulo span {
+        font-size: 9rem;
+    }
+
+    .estatisticas-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(2, 1fr);
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .sobre-imagem {
+        min-height: 400px;
+    }
+
+    .cards-dinossauros,
+    .curiosidades-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .linha-do-tempo {
+        grid-template-columns: 1fr;
+    }
+
+    .periodo-card.destaque {
+        transform: none;
+    }
+
+    .periodo-card.destaque:hover {
+        transform: translateY(-7px);
+    }
+
+    .rodape-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
 }
 
+
 /* =========================================================
-   21. RESPONSIVIDADE - CELULARES
+   31. CELULARES
    ========================================================= */
 
 @media (max-width: 700px) {
 
-    header {
-        position: relative;
+    .container {
+        width: min(92%, 550px);
+    }
 
+    .cabecalho {
+        position: relative;
+    }
+
+    .cabecalho-conteudo {
         flex-direction: column;
 
-        padding: 18px 20px;
+        padding:
+            15px 0 18px;
 
+        gap: 14px;
+    }
+
+    .menu {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        gap: 8px 15px;
+    }
+
+    .menu a {
+        font-size: 0.78rem;
+    }
+
+    .hero {
+        min-height: 700px;
+
+        padding-top: 50px;
+    }
+
+    .hero-conteudo {
         gap: 15px;
     }
 
-    .logo {
-        white-space: normal;
+    .hero h1 {
+        font-size: 2.8rem;
 
-        text-align: center;
+        letter-spacing: -1px;
     }
 
-    nav {
-        flex-wrap: wrap;
-
-        gap: 12px 18px;
+    .hero p {
+        font-size: 0.95rem;
     }
 
-    nav a {
-        font-size: 0.85rem;
+    .hero-botoes {
+        width: 100%;
+
+        flex-direction: column;
     }
 
-    #darkMode {
-        width: 40px;
-        height: 40px;
+    .hero-botoes .botao {
+        width: 100%;
     }
 
-    .banner {
-        min-height: 540px;
-
-        padding:
-            60px 25px;
-
-        text-align: center;
-
-        justify-content: center;
+    .hero-dino {
+        min-height: 270px;
     }
 
-    .textoBanner h1 {
-        font-size: 2.5rem;
-    }
+    .dino-circulo {
+        width: 230px;
 
-    .textoBanner p {
-        font-size: 1rem;
-    }
-
-    section {
-        padding:
-            60px 20px;
-    }
-
-    section h2 {
-        font-size: 1.9rem;
-    }
-
-    .cards,
-    .lista,
-    .numeros {
-        grid-template-columns: 1fr;
-    }
-
-    .card img {
         height: 230px;
     }
 
-    .lista > div {
-        padding: 25px;
+    .dino-circulo span {
+        font-size: 7rem;
     }
 
-    .numeros {
-        gap: 10px;
+    .folha {
+        font-size: 2.5rem;
     }
 
-    .numeros h3 {
-        font-size: 1.7rem;
+    .estatisticas-grid {
+        grid-template-columns: 1fr;
     }
 
-    #topo {
-        right: 18px;
+    .secao {
+        padding: 70px 0;
+    }
 
-        bottom: 18px;
+    .titulo-secao {
+        margin-bottom: 40px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 2rem;
+    }
+
+    .sobre-card-grande {
+        height: 340px;
+    }
+
+    .sobre-emoji {
+        font-size: 8rem;
+    }
+
+    .sobre-texto h3 {
+        font-size: 1.8rem;
+    }
+
+    .cards-dinossauros,
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-imagem {
+        height: 230px;
+    }
+
+    .quiz-box {
+        grid-template-columns: 1fr;
+
+        padding: 35px 25px;
+
+        text-align: center;
+    }
+
+    .quiz-texto h2 {
+        font-size: 1.8rem;
+    }
+
+    .quiz-icone {
+        font-size: 6rem;
+    }
+
+    .formulario {
+        padding: 25px 20px;
+    }
+
+    .rodape-grid {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .rodape-final .container {
+        flex-direction: column;
+
+        text-align: center;
     }
 
 }
 
+
 /* =========================================================
-   22. CELULARES PEQUENOS
+   32. CELULARES MUITO PEQUENOS
    ========================================================= */
 
 @media (max-width: 400px) {
 
-    .textoBanner h1 {
-        font-size: 2.1rem;
+    .hero h1 {
+        font-size: 2.35rem;
     }
 
-    nav {
-        gap: 10px 13px;
+    .tag {
+        font-size: 0.68rem;
     }
 
-    nav a {
-        font-size: 0.78rem;
+    .filtros {
+        flex-direction: column;
     }
 
-    .botao {
-        padding:
-            11px 23px;
+    .filtro {
+        width: 100%;
+    }
+
+    .dino-circulo {
+        width: 200px;
+
+        height: 200px;
+    }
+
+    .dino-circulo span {
+        font-size: 6rem;
     }
 
 }
 
+
 /* =========================================================
-   23. ACESSIBILIDADE
+   33. ACESSIBILIDADE
    ========================================================= */
 
 :focus-visible {
-    outline: 3px solid #f4b942;
+    outline: 3px solid #edbd48;
 
     outline-offset: 3px;
 }
@@ -944,9 +2239,10 @@ body.dark form textarea {
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
+
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
     }
 
 }
-
