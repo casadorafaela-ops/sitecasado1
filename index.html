@@ -1,26 +1,346 @@
 <!DOCTYPE html>
-
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Explora o Mundo dos Dinossauros</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <h1>Meu blog tech</h1>
-        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p>
-    </header>
 
-    <main>
-        <h2>Meu primeiro post</h2>
-        <p>Por: Marcelo Paludetto</p>
-        <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de
-            tecnologia.</p>
-    </main>
+<header>
+
+    <div class="logo">
+        🦖 Explora o Mundo dos Dinossauros
+    </div>
+
+    <nav>
+
+        <a href="#inicio">Início</a>
+        <a href="#historia">História</a>
+        <a href="#especies">Espécies</a>
+        <a href="#curiosidades">Curiosidades</a>
+        <a href="#contato">Contato</a>
+
+    </nav>
+
+    <button id="darkMode">
+        🌙
+    </button>
+
+</header>
+
+<section class="banner" id="inicio">
+
+    <div class="textoBanner">
+
+        <h1>Bem-vindo ao Mundo dos Dinossauros</h1>
+
+        <p>
+
+            Descubra espécies incríveis que viveram há milhões de anos e conheça suas curiosidades.
+
+        </p>
+
+        <a href="#especies" class="botao">
+
+            Explorar
+
+        </a>
+
+    </div>
+
+</section>
+
+<section class="pesquisa">
+
+    <h2>Pesquisar Dinossauro</h2>
+
+    <input
+        type="text"
+        id="campoPesquisa"
+        placeholder="Digite o nome..."
+    >
+
+</section>
+
+<section id="historia">
+
+    <h2>História</h2>
+
+    <p>
+
+        Os dinossauros dominaram a Terra durante milhões de anos.
+        Eles surgiram no período Triássico e habitaram praticamente todos
+        os continentes.
+
+    </p>
+
+</section>
+
+<section id="especies">
+
+<h2>Espécies</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="img/trex.jpg" alt="Tiranossauro Rex">
+
+<h3>Tiranossauro Rex</h3>
+
+<p>
+
+Um dos maiores predadores terrestres já descobertos.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+<div class="card">
+
+<img src="img/triceratops.jpg" alt="Tricerátopo">
+
+<h3>Tricerátopo</h3>
+
+<p>
+
+Conhecido pelos três grandes chifres e enorme gola óssea.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+<div class="card">
+
+<img src="img/velociraptor.jpg" alt="Velociraptor">
+
+<h3>Velociraptor</h3>
+
+<p>
+
+Pequeno, rápido e extremamente inteligente.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+<div class="card">
+
+<img src="img/braquiossauro.jpg" alt="Braquiossauro">
+
+<h3>Braquiossauro</h3>
+
+<p>
+
+Herbívoro gigante com pescoço extremamente longo.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+<div class="card">
+
+<img src="img/estegossauro.jpg" alt="Estegossauro">
+
+<h3>Estegossauro</h3>
+
+<p>
+
+Possuía placas ósseas nas costas e uma cauda com espinhos.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+<div class="card">
+
+<img src="img/spinossauro.jpg" alt="Espinossauro">
+
+<h3>Espinossauro</h3>
+
+<p>
+
+Maior dinossauro carnívoro conhecido.
+
+</p>
+
+<button>Saiba Mais</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="curiosidades">
+
+<h2>Curiosidades</h2>
+
+<div class="lista">
+
+<div>
+
+<h3>🦴 Fósseis</h3>
+
+<p>
+
+Os fósseis são encontrados em diversos países e ajudam os cientistas
+a reconstruir a história da vida.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>🌍 Extinção</h3>
+
+<p>
+
+A teoria mais aceita afirma que um enorme asteroide atingiu a Terra
+há cerca de 66 milhões de anos.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>🐣 Aves</h3>
+
+<p>
+
+As aves modernas são consideradas descendentes dos dinossauros.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="estatisticas">
+
+<h2>Números Impressionantes</h2>
+
+<div class="numeros">
+
+<div>
+
+<h3>700+</h3>
+
+<p>Espécies Descobertas</p>
+
+</div>
+
+<div>
+
+<h3>230 Milhões</h3>
+
+<p>Anos Atrás</p>
+
+</div>
+
+<div>
+
+<h3>66 Milhões</h3>
+
+<p>Extinção</p>
+
+</div>
+
+<div>
+
+<h3>Todos os Continentes</h3>
+
+<p>Fósseis Encontrados</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contato">
+
+<h2>Contato</h2>
+
+<form>
+
+<input
+type="text"
+placeholder="Nome"
+required>
+
+<input
+type="email"
+placeholder="Email"
+required>
+
+<textarea
+placeholder="Mensagem"></textarea>
+
+<button>
+
+Enviar
+
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h3>
+
+Explora o Mundo dos Dinossauros
+
+</h3>
+
+<p>
+
+Projeto desenvolvido utilizando HTML, CSS e JavaScript.
+
+</p>
+
+<p>
+
+© 2026
+
+</p>
+
+</footer>
+
+<button id="topo">
+
+⬆
+
+</button>
+
+<script src="script.js"></script>
+
 </body>
 
 </html>
