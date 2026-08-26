@@ -1,1 +1,952 @@
+/* =========================================================
+   EXPLORA O MUNDO DOS DINOSSAUROS
+   STYLE.CSS
+   ========================================================= */
+
+/* =========================================================
+   1. CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f4f1e8;
+    color: #26352a;
+    line-height: 1.7;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================================================
+   2. CABEÇALHO
+   ========================================================= */
+
+header {
+    width: 100%;
+    min-height: 75px;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: #1d3825;
+    color: white;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   3. LOGO
+   ========================================================= */
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   4. MENU
+   ========================================================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav a {
+    position: relative;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #f4b942;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #f4b942;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================================================
+   5. BOTÃO DARK MODE
+   ========================================================= */
+
+#darkMode {
+    border: none;
+    background: #f4b942;
+    color: #1d3825;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+    font-size: 1.1rem;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+#darkMode:hover {
+    transform: rotate(20deg) scale(1.08);
+    background: #ffffff;
+}
+
+/* =========================================================
+   6. BANNER PRINCIPAL
+   ========================================================= */
+
+.banner {
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 8%;
+
+    background:
+        linear-gradient(
+            rgba(17, 48, 26, 0.72),
+            rgba(17, 48, 26, 0.72)
+        ),
+        url("img/banner.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+.textoBanner {
+    max-width: 720px;
+    animation: aparecer 1s ease;
+}
+
+.textoBanner h1 {
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.textoBanner p {
+    max-width: 650px;
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+}
+
+/* =========================================================
+   7. BOTÕES
+   ========================================================= */
+
+.botao {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    background: #f4b942;
+    color: #1d3825;
+
+    border-radius: 30px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.botao:hover {
+    background: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================================================
+   8. SEÇÕES
+   ========================================================= */
+
+section {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 80px 6%;
+}
+
+section h2 {
+    text-align: center;
+
+    font-size: 2.3rem;
+
+    margin-bottom: 30px;
+
+    color: #244b2d;
+}
+
+section h2::after {
+    content: "";
+
+    display: block;
+
+    width: 70px;
+    height: 4px;
+
+    background: #f4b942;
+
+    margin: 12px auto 0;
+
+    border-radius: 10px;
+}
+
+/* =========================================================
+   9. PESQUISA
+   ========================================================= */
+
+.pesquisa {
+    max-width: 800px;
+    text-align: center;
+}
+
+#campoPesquisa {
+    width: 100%;
+
+    padding: 17px 22px;
+
+    border: 2px solid #d6d1c4;
+
+    border-radius: 30px;
+
+    outline: none;
+
+    background: white;
+
+    color: #26352a;
+
+    font-size: 1rem;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#campoPesquisa:focus {
+    border-color: #4d7b55;
+
+    box-shadow:
+        0 0 0 4px rgba(77, 123, 85, 0.15);
+}
+
+/* =========================================================
+   10. HISTÓRIA
+   ========================================================= */
+
+#historia {
+    max-width: 900px;
+    text-align: center;
+}
+
+#historia p {
+    font-size: 1.05rem;
+    color: #526158;
+}
+
+/* =========================================================
+   11. CARDS
+   ========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+
+    margin-top: 45px;
+}
+
+.card {
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.06);
+}
+
+.card h3 {
+    color: #244b2d;
+
+    font-size: 1.35rem;
+
+    padding:
+        22px 22px 5px;
+}
+
+.card p {
+    color: #647066;
+
+    padding:
+        0 22px 20px;
+}
+
+.card button {
+    margin:
+        0 22px 25px;
+
+    padding:
+        10px 20px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #2e653a;
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.card button:hover {
+    background: #f4b942;
+    color: #1d3825;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   12. CURIOSIDADES
+   ========================================================= */
+
+.lista {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.lista > div {
+    background: #e7eadf;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border-left: 5px solid #4d7b55;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.lista > div:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.lista h3 {
+    color: #244b2d;
+
+    margin-bottom: 10px;
+}
+
+.lista p {
+    color: #5e6a61;
+}
+
+/* =========================================================
+   13. ESTATÍSTICAS
+   ========================================================= */
+
+.estatisticas {
+    max-width: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d3825,
+            #315d3b
+        );
+
+    color: white;
+
+    text-align: center;
+}
+
+.estatisticas h2 {
+    color: white;
+}
+
+.numeros {
+    max-width: 1100px;
+
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+.numeros div {
+    padding: 20px;
+}
+
+.numeros h3 {
+    color: #f4b942;
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+}
+
+.numeros p {
+    color: #e8eee8;
+}
+
+/* =========================================================
+   14. FORMULÁRIO
+   ========================================================= */
+
+#contato {
+    max-width: 800px;
+}
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 40px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 2px solid #d6d1c4;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: white;
+
+    color: #26352a;
+
+    font-size: 1rem;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #4d7b55;
+
+    box-shadow:
+        0 0 0 4px rgba(77, 123, 85, 0.12);
+}
+
+form textarea {
+    min-height: 160px;
+
+    resize: vertical;
+}
+
+form button {
+    align-self: center;
+
+    border: none;
+
+    padding: 13px 35px;
+
+    border-radius: 30px;
+
+    background: #2e653a;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+form button:hover {
+    background: #f4b942;
+
+    color: #1d3825;
+
+    transform: translateY(-3px);
+}
+
+/* =========================================================
+   15. RODAPÉ
+   ========================================================= */
+
+footer {
+    background: #14271a;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+footer h3 {
+    color: #f4b942;
+
+    font-size: 1.4rem;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #c9d2ca;
+
+    margin: 5px 0;
+}
+
+/* =========================================================
+   16. BOTÃO VOLTAR AO TOPO
+   ========================================================= */
+
+#topo {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f4b942;
+
+    color: #1d3825;
+
+    font-size: 1.2rem;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 900;
+}
+
+#topo.mostrar {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+#topo:hover {
+    background: #2e653a;
+
+    color: white;
+
+    transform: translateY(-4px);
+}
+
+/* =========================================================
+   17. ANIMAÇÕES
+   ========================================================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================================================
+   18. ELEMENTOS ESCONDIDOS PELA PESQUISA
+   ========================================================= */
+
+.card.oculto {
+    display: none;
+}
+
+/* =========================================================
+   19. MODO ESCURO
+   ========================================================= */
+
+body.dark {
+    background: #111713;
+
+    color: #e5ebe5;
+}
+
+body.dark header {
+    background: #0a120d;
+}
+
+body.dark section h2 {
+    color: #dce9dc;
+}
+
+body.dark #historia p {
+    color: #b9c4ba;
+}
+
+body.dark .pesquisa {
+    background: #111713;
+}
+
+body.dark #campoPesquisa {
+    background: #1b251e;
+
+    color: #f0f5f0;
+
+    border-color: #3a493d;
+}
+
+body.dark .card {
+    background: #1b251e;
+
+    border-color: #344137;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .card h3 {
+    color: #cfe4d1;
+}
+
+body.dark .card p {
+    color: #aebbb0;
+}
+
+body.dark .lista > div {
+    background: #1b251e;
+
+    border-left-color: #6c9f74;
+}
+
+body.dark .lista h3 {
+    color: #d0e3d2;
+}
+
+body.dark .lista p {
+    color: #adb9ae;
+}
+
+body.dark form input,
+body.dark form textarea {
+    background: #1b251e;
+
+    color: white;
+
+    border-color: #3a493d;
+}
+
+/* =========================================================
+   20. RESPONSIVIDADE - TABLETS
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    header {
+        padding:
+            15px 4%;
+    }
+
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .lista {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .numeros {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* =========================================================
+   21. RESPONSIVIDADE - CELULARES
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        position: relative;
+
+        flex-direction: column;
+
+        padding: 18px 20px;
+
+        gap: 15px;
+    }
+
+    .logo {
+        white-space: normal;
+
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        gap: 12px 18px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    #darkMode {
+        width: 40px;
+        height: 40px;
+    }
+
+    .banner {
+        min-height: 540px;
+
+        padding:
+            60px 25px;
+
+        text-align: center;
+
+        justify-content: center;
+    }
+
+    .textoBanner h1 {
+        font-size: 2.5rem;
+    }
+
+    .textoBanner p {
+        font-size: 1rem;
+    }
+
+    section {
+        padding:
+            60px 20px;
+    }
+
+    section h2 {
+        font-size: 1.9rem;
+    }
+
+    .cards,
+    .lista,
+    .numeros {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 230px;
+    }
+
+    .lista > div {
+        padding: 25px;
+    }
+
+    .numeros {
+        gap: 10px;
+    }
+
+    .numeros h3 {
+        font-size: 1.7rem;
+    }
+
+    #topo {
+        right: 18px;
+
+        bottom: 18px;
+    }
+
+}
+
+/* =========================================================
+   22. CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .textoBanner h1 {
+        font-size: 2.1rem;
+    }
+
+    nav {
+        gap: 10px 13px;
+    }
+
+    nav a {
+        font-size: 0.78rem;
+    }
+
+    .botao {
+        padding:
+            11px 23px;
+    }
+
+}
+
+/* =========================================================
+   23. ACESSIBILIDADE
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid #f4b942;
+
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
 
