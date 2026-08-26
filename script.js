@@ -1,6 +1,6 @@
 /* =========================================================
    EXPLORA O MUNDO DOS DINOSSAUROS
-   SCRIPT.JS
+   JAVASCRIPT
    ========================================================= */
 
 
@@ -8,25 +8,44 @@
    1. MODO ESCURO
    ========================================================= */
 
-const botaoDarkMode = document.getElementById("darkMode");
+const botaoTema = document.getElementById("botao-tema");
 
-if (botaoDarkMode) {
+if (botaoTema) {
 
-    botaoDarkMode.addEventListener("click", function () {
+    botaoTema.addEventListener("click", function () {
 
-        document.body.classList.toggle("dark");
+        document.body.classList.toggle("modo-escuro");
 
-        if (document.body.classList.contains("dark")) {
+        const escuro =
+            document.body.classList.contains("modo-escuro");
 
-            botaoDarkMode.textContent = "☀️";
+        if (escuro) {
 
-            localStorage.setItem("modo", "escuro");
+            botaoTema.textContent = "☀️";
+
+            botaoTema.setAttribute(
+                "aria-label",
+                "Desativar modo escuro"
+            );
+
+            localStorage.setItem(
+                "tema",
+                "escuro"
+            );
 
         } else {
 
-            botaoDarkMode.textContent = "🌙";
+            botaoTema.textContent = "🌙";
 
-            localStorage.setItem("modo", "claro");
+            botaoTema.setAttribute(
+                "aria-label",
+                "Ativar modo escuro"
+            );
+
+            localStorage.setItem(
+                "tema",
+                "claro"
+            );
 
         }
 
@@ -36,439 +55,611 @@ if (botaoDarkMode) {
 
 
 /* =========================================================
-   2. CARREGAR MODO SALVO
+   2. CARREGAR TEMA SALVO
    ========================================================= */
 
-const modoSalvo = localStorage.getItem("modo");
+const temaSalvo = localStorage.getItem("tema");
 
-if (modoSalvo === "escuro") {
+if (temaSalvo === "escuro") {
 
-    document.body.classList.add("dark");
+    document.body.classList.add("modo-escuro");
 
-    if (botaoDarkMode) {
-        botaoDarkMode.textContent = "☀️";
+    if (botaoTema) {
+        botaoTema.textContent = "☀️";
+
+        botaoTema.setAttribute(
+            "aria-label",
+            "Desativar modo escuro"
+        );
     }
 
 }
 
 
 /* =========================================================
-   3. PESQUISA DE DINOSSAUROS
+   3. PESQUISA DOS DINOSSAUROS
    ========================================================= */
 
-const campoPesquisa = document.getElementById("campoPesquisa");
+const campoPesquisa =
+    document.getElementById("campo-pesquisa");
 
-const cards = document.querySelectorAll(".card");
+const cardsDinossauros =
+    document.querySelectorAll(".card-dino");
+
+const mensagemPesquisa =
+    document.getElementById("mensagem-pesquisa");
+
 
 if (campoPesquisa) {
 
-    campoPesquisa.addEventListener("input", function () {
+    campoPesquisa.addEventListener(
+        "input",
+        function () {
 
-        const pesquisa = campoPesquisa.value
-            .toLowerCase()
-            .trim();
+            const texto =
+                campoPesquisa.value
+                    .toLowerCase()
+                    .trim();
 
-        cards.forEach(function (card) {
+            let encontrados = 0;
 
-            const texto = card.textContent.toLowerCase();
+            cardsDinossauros.forEach(
+                function (card) {
 
-            if (texto.includes(pesquisa)) {
+                    const conteudo =
+                        card.textContent.toLowerCase();
 
-                card.classList.remove("oculto");
+                    if (conteudo.includes(texto)) {
 
-            } else {
+                        card.style.display = "";
 
-                card.classList.add("oculto");
+                        encontrados++;
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                }
+            );
+
+
+            if (mensagemPesquisa) {
+
+                if (encontrados === 0) {
+
+                    mensagemPesquisa.style.display =
+                        "block";
+
+                } else {
+
+                    mensagemPesquisa.style.display =
+                        "none";
+
+                }
 
             }
 
-        });
-
-    });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   4. BOTÃO VOLTAR AO TOPO
+   4. FILTROS DOS DINOSSAUROS
    ========================================================= */
 
-const botaoTopo = document.getElementById("topo");
+const botoesFiltro =
+    document.querySelectorAll(".filtro");
 
-window.addEventListener("scroll", function () {
 
-    if (!botaoTopo) {
-        return;
+botoesFiltro.forEach(
+    function (botao) {
+
+        botao.addEventListener(
+            "click",
+            function () {
+
+                /* Remove o ativo dos outros botões */
+
+                botoesFiltro.forEach(
+                    function (outroBotao) {
+
+                        outroBotao.classList.remove(
+                            "ativo"
+                        );
+
+                    }
+                );
+
+                /* Ativa o botão clicado */
+
+                botao.classList.add("ativo");
+
+
+                const filtro =
+                    botao.getAttribute(
+                        "data-filtro"
+                    );
+
+
+                let encontrados = 0;
+
+
+                cardsDinossauros.forEach(
+                    function (card) {
+
+                        const tipo =
+                            card.getAttribute(
+                                "data-tipo"
+                            );
+
+
+                        if (
+                            filtro === "todos" ||
+                            tipo === filtro
+                        ) {
+
+                            card.style.display = "";
+
+                            encontrados++;
+
+                        } else {
+
+                            card.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (mensagemPesquisa) {
+
+                    if (encontrados === 0) {
+
+                        mensagemPesquisa.style.display =
+                            "block";
+
+                    } else {
+
+                        mensagemPesquisa.style.display =
+                            "none";
+
+                    }
+
+                }
+
+
+                /* Limpa a pesquisa */
+
+                if (campoPesquisa) {
+                    campoPesquisa.value = "";
+                }
+
+            }
+        );
+
     }
-
-    if (window.scrollY > 400) {
-
-        botaoTopo.classList.add("mostrar");
-
-    } else {
-
-        botaoTopo.classList.remove("mostrar");
-
-    }
-
-});
-
-
-if (botaoTopo) {
-
-    botaoTopo.addEventListener("click", function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
-
-}
+);
 
 
 /* =========================================================
    5. BOTÕES "SAIBA MAIS"
    ========================================================= */
 
-const botoesSaibaMais = document.querySelectorAll(".card button");
+const botoesCards =
+    document.querySelectorAll(".botao-card");
 
-botoesSaibaMais.forEach(function (botao) {
 
-    botao.addEventListener("click", function () {
+botoesCards.forEach(
+    function (botao) {
 
-        const card = botao.closest(".card");
+        botao.addEventListener(
+            "click",
+            function () {
 
-        if (!card) {
-            return;
-        }
+                const card =
+                    botao.closest(".card-dino");
 
-        const nome = card.querySelector("h3");
 
-        const descricao = card.querySelector("p");
+                if (!card) {
+                    return;
+                }
 
-        if (!nome || !descricao) {
-            return;
-        }
 
-        alert(
-            nome.textContent +
-            "\n\n" +
-            descricao.textContent
+                const nome =
+                    card.querySelector("h3");
+
+
+                const descricao =
+                    card.querySelector("p");
+
+
+                if (!nome || !descricao) {
+                    return;
+                }
+
+
+                alert(
+                    "🦖 " +
+                    nome.textContent +
+                    "\n\n" +
+                    descricao.textContent
+                );
+
+            }
         );
 
-    });
-
-});
+    }
+);
 
 
 /* =========================================================
-   6. FORMULÁRIO DE CONTATO
+   6. BOTÃO DO QUIZ
    ========================================================= */
 
-const formulario = document.querySelector("form");
+const botaoQuiz =
+    document.getElementById("botao-quiz");
 
-if (formulario) {
 
-    formulario.addEventListener("submit", function (event) {
+if (botaoQuiz) {
 
-        event.preventDefault();
+    botaoQuiz.addEventListener(
+        "click",
+        function () {
 
-        const nome = formulario.querySelector(
-            'input[type="text"]'
-        );
+            const resposta =
+                prompt(
+                    "🧠 DESAFIO DOS DINOSSAUROS\n\n" +
+                    "Qual destes dinossauros era conhecido " +
+                    "por possuir três chifres?\n\n" +
+                    "A) Tiranossauro Rex\n" +
+                    "B) Tricerátopo\n" +
+                    "C) Velociraptor\n\n" +
+                    "Digite A, B ou C:"
+                );
 
-        const email = formulario.querySelector(
-            'input[type="email"]'
-        );
 
-        const mensagem = formulario.querySelector(
-            "textarea"
-        );
+            if (!resposta) {
+                return;
+            }
 
-        if (!nome || !email || !mensagem) {
-            return;
+
+            const respostaFinal =
+                resposta
+                    .trim()
+                    .toUpperCase();
+
+
+            if (respostaFinal === "B") {
+
+                alert(
+                    "🎉 PARABÉNS!\n\n" +
+                    "Você acertou!\n\n" +
+                    "O Tricerátopo possuía três chifres."
+                );
+
+            } else {
+
+                alert(
+                    "❌ Não foi dessa vez!\n\n" +
+                    "A resposta correta é B) Tricerátopo."
+                );
+
+            }
+
         }
-
-        if (
-            nome.value.trim() === "" ||
-            email.value.trim() === "" ||
-            mensagem.value.trim() === ""
-        ) {
-
-            alert(
-                "Por favor, preencha todos os campos."
-            );
-
-            return;
-        }
-
-        alert(
-            "Mensagem enviada com sucesso!\n\n" +
-            "Obrigado pelo contato, " +
-            nome.value +
-            "!"
-        );
-
-        formulario.reset();
-
-    });
+    );
 
 }
 
 
 /* =========================================================
-   7. ANIMAÇÃO DOS CARDS AO ENTRAREM NA TELA
+   7. FORMULÁRIO
    ========================================================= */
 
-const elementosAnimados = document.querySelectorAll(
-    ".card, .lista > div, .numeros div"
-);
+const formulario =
+    document.getElementById(
+        "formulario-contato"
+    );
 
-const observador = new IntersectionObserver(
 
-    function (entradas) {
+if (formulario) {
 
-        entradas.forEach(function (entrada) {
+    formulario.addEventListener(
+        "submit",
+        function (event) {
 
-            if (entrada.isIntersecting) {
+            event.preventDefault();
 
-                entrada.target.style.opacity = "1";
 
-                entrada.target.style.transform =
-                    "translateY(0)";
+            const nome =
+                document.getElementById("nome");
 
-                observador.unobserve(
-                    entrada.target
+            const email =
+                document.getElementById("email");
+
+            const mensagem =
+                document.getElementById("mensagem");
+
+
+            if (
+                !nome ||
+                !email ||
+                !mensagem
+            ) {
+                return;
+            }
+
+
+            if (
+                nome.value.trim() === "" ||
+                email.value.trim() === "" ||
+                mensagem.value.trim() === ""
+            ) {
+
+                alert(
+                    "⚠️ Preencha todos os campos."
                 );
 
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
-
-
-elementosAnimados.forEach(function (elemento) {
-
-    elemento.style.opacity = "0";
-
-    elemento.style.transform =
-        "translateY(30px)";
-
-    elemento.style.transition =
-        "opacity 0.7s ease, transform 0.7s ease";
-
-    observador.observe(elemento);
-
-});
-
-
-/* =========================================================
-   8. EFEITO DE DESTAQUE NOS CARDS
-   ========================================================= */
-
-cards.forEach(function (card) {
-
-    card.addEventListener("mouseenter", function () {
-
-        cards.forEach(function (outroCard) {
-
-            if (outroCard !== card) {
-
-                outroCard.style.opacity = "0.75";
+                return;
 
             }
 
-        });
 
-    });
+            alert(
+                "✅ Mensagem enviada!\n\n" +
+                "Obrigado pelo contato, " +
+                nome.value +
+                "!"
+            );
 
-    card.addEventListener("mouseleave", function () {
 
-        cards.forEach(function (outroCard) {
+            formulario.reset();
 
-            outroCard.style.opacity = "1";
+        }
+    );
 
-        });
-
-    });
-
-});
+}
 
 
 /* =========================================================
-   9. NAVEGAÇÃO SUAVE
+   8. BOTÃO VOLTAR AO TOPO
    ========================================================= */
 
-const linksMenu = document.querySelectorAll(
-    'nav a[href^="#"]'
-);
+const botaoTopo =
+    document.getElementById(
+        "botao-topo"
+    );
 
-linksMenu.forEach(function (link) {
 
-    link.addEventListener("click", function (event) {
+window.addEventListener(
+    "scroll",
+    function () {
 
-        event.preventDefault();
+        if (!botaoTopo) {
+            return;
+        }
 
-        const destino = link.getAttribute("href");
 
-        const secao = document.querySelector(destino);
+        if (window.scrollY > 500) {
 
-        if (secao) {
+            botaoTopo.classList.add(
+                "visivel"
+            );
 
-            secao.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+        } else {
+
+            botaoTopo.classList.remove(
+                "visivel"
+            );
 
         }
 
-    });
-
-});
-
-
-/* =========================================================
-   10. EFEITO NO HEADER DURANTE O SCROLL
-   ========================================================= */
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll", function () {
-
-    if (!header) {
-        return;
     }
-
-    if (window.scrollY > 50) {
-
-        header.style.boxShadow =
-            "0 5px 20px rgba(0, 0, 0, 0.30)";
-
-    } else {
-
-        header.style.boxShadow =
-            "0 3px 15px rgba(0, 0, 0, 0.20)";
-
-    }
-
-});
-
-
-/* =========================================================
-   11. CONTADOR DAS ESTATÍSTICAS
-   ========================================================= */
-
-const numeros = document.querySelectorAll(
-    ".numeros h3"
 );
 
-const observadorNumeros = new IntersectionObserver(
 
-    function (entradas) {
+if (botaoTopo) {
 
-        entradas.forEach(function (entrada) {
+    botaoTopo.addEventListener(
+        "click",
+        function () {
 
-            if (entrada.isIntersecting) {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-                entrada.target.style.transform =
-                    "scale(1.1)";
+        }
+    );
 
-                setTimeout(function () {
+}
 
-                    entrada.target.style.transform =
-                        "scale(1)";
 
-                }, 400);
+/* =========================================================
+   9. MENU COM ROLAGEM SUAVE
+   ========================================================= */
 
-                observadorNumeros.unobserve(
-                    entrada.target
-                );
+const links =
+    document.querySelectorAll(
+        'a[href^="#"]'
+    );
+
+
+links.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function (event) {
+
+                const destino =
+                    link.getAttribute("href");
+
+
+                if (
+                    !destino ||
+                    destino === "#"
+                ) {
+                    return;
+                }
+
+
+                const elemento =
+                    document.querySelector(
+                        destino
+                    );
+
+
+                if (elemento) {
+
+                    event.preventDefault();
+
+
+                    elemento.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+
+                }
 
             }
-
-        });
-
-    },
-
-    {
-        threshold: 0.5
-    }
-
-);
-
-
-numeros.forEach(function (numero) {
-
-    numero.style.transition =
-        "transform 0.4s ease";
-
-    observadorNumeros.observe(numero);
-
-});
-
-
-/* =========================================================
-   12. MENSAGEM DE BOAS-VINDAS
-   ========================================================= */
-
-console.log(
-    "🦖 Bem-vindo ao Explora o Mundo dos Dinossauros!"
-);
-
-console.log(
-    "Site carregado com sucesso."
-);
-
-
-/* =========================================================
-   13. VERIFICAÇÃO DOS ELEMENTOS
-   ========================================================= */
-
-console.log(
-    "Cards encontrados:",
-    cards.length
-);
-
-console.log(
-    "Links encontrados:",
-    linksMenu.length
-);
-
-
-/* =========================================================
-   14. DATA DO RODAPÉ
-   ========================================================= */
-
-const anoAtual = new Date().getFullYear();
-
-const textosRodape = document.querySelectorAll(
-    "footer p"
-);
-
-textosRodape.forEach(function (texto) {
-
-    if (texto.textContent.includes("2026")) {
-
-        texto.textContent =
-            "© " +
-            anoAtual +
-            " - Explora o Mundo dos Dinossauros";
+        );
 
     }
-
-});
+);
 
 
 /* =========================================================
-   FIM DO SCRIPT
+   10. ANIMAÇÃO DOS CARDS
    ========================================================= */
 
+const elementosAnimados =
+    document.querySelectorAll(
+        ".card-dino, " +
+        ".curiosidade-card, " +
+        ".periodo-card, " +
+        ".estatistica"
+    );
+
+
+const observador =
+    new IntersectionObserver(
+        function (entradas) {
+
+            entradas.forEach(
+                function (entrada) {
+
+                    if (
+                        entrada.isIntersecting
+                    ) {
+
+                        entrada.target.classList.add(
+                            "aparecer"
+                        );
+
+
+                        observador.unobserve(
+                            entrada.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+elementosAnimados.forEach(
+    function (elemento) {
+
+        observador.observe(elemento);
+
+    }
+);
+
+
+/* =========================================================
+   11. EFEITO NO CABEÇALHO
+   ========================================================= */
+
+const cabecalho =
+    document.querySelector(
+        ".cabecalho"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    function () {
+
+        if (!cabecalho) {
+            return;
+        }
+
+
+        if (window.scrollY > 50) {
+
+            cabecalho.classList.add(
+                "rolando"
+            );
+
+        } else {
+
+            cabecalho.classList.remove(
+                "rolando"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   12. ANO AUTOMÁTICO
+   ========================================================= */
+
+const ano =
+    new Date().getFullYear();
+
+
+const elementosAno =
+    document.querySelectorAll(
+        ".ano-atual"
+    );
+
+
+elementosAno.forEach(
+    function (elemento) {
+
+        elemento.textContent = ano;
+
+    }
+);
+
+
+/* =========================================================
+   13. MENSAGEM NO CONSOLE
+   ========================================================= */
+
+console.log(
+    "🦖 Explora o Mundo dos Dinossauros"
+);
+
+console.log(
+    "✅ JavaScript carregado corretamente!"
+);
+
+console.log(
+    "📁 Arquivo: js/script.js"
+);
