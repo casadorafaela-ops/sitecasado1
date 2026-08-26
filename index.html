@@ -1,345 +1,1311 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Explore o incrível mundo dos dinossauros, conheça espécies, curiosidades e descubra como era a vida na pré-história."
+    >
+
     <title>Explora o Mundo dos Dinossauros</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<header>
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
 
-    <div class="logo">
-        🦖 Explora o Mundo dos Dinossauros
-    </div>
+    <header class="cabecalho">
 
-    <nav>
+        <div class="container cabecalho-conteudo">
 
-        <a href="#inicio">Início</a>
-        <a href="#historia">História</a>
-        <a href="#especies">Espécies</a>
-        <a href="#curiosidades">Curiosidades</a>
-        <a href="#contato">Contato</a>
+            <a href="#inicio" class="logo">
+                🦖
+                <span>Explora Dinossauros</span>
+            </a>
 
-    </nav>
+            <nav class="menu">
 
-    <button id="darkMode">
-        🌙
+                <a href="#inicio">Início</a>
+
+                <a href="#sobre">Sobre</a>
+
+                <a href="#dinossauros">Dinossauros</a>
+
+                <a href="#curiosidades">Curiosidades</a>
+
+                <a href="#contato">Contato</a>
+
+            </nav>
+
+            <button
+                id="botao-tema"
+                class="botao-tema"
+                type="button"
+                aria-label="Ativar modo escuro"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             INÍCIO
+        ================================================== -->
+
+        <section id="inicio" class="hero">
+
+            <div class="hero-fundo"></div>
+
+            <div class="container hero-conteudo">
+
+                <div class="hero-texto">
+
+                    <span class="tag">
+                        🌎 VIAGEM PELA PRÉ-HISTÓRIA
+                    </span>
+
+                    <h1>
+                        Explore o incrível
+                        <strong>mundo dos dinossauros</strong>
+                    </h1>
+
+                    <p>
+                        Descubra criaturas que dominaram a Terra há
+                        milhões de anos. Conheça suas histórias,
+                        características, curiosidades e os mistérios
+                        que ainda fascinam a humanidade.
+                    </p>
+
+                    <div class="hero-botoes">
+
+                        <a
+                            href="#dinossauros"
+                            class="botao botao-principal"
+                        >
+                            🦖 Conhecer dinossauros
+                        </a>
+
+                        <a
+                            href="#curiosidades"
+                            class="botao botao-secundario"
+                        >
+                            🔎 Ver curiosidades
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-dino">
+
+                    <div class="dino-circulo">
+
+                        <span>🦖</span>
+
+                    </div>
+
+                    <div class="folha folha-1">🌿</div>
+
+                    <div class="folha folha-2">🌿</div>
+
+                    <div class="folha folha-3">🍃</div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-onda"></div>
+
+        </section>
+
+
+        <!-- =================================================
+             ESTATÍSTICAS
+        ================================================== -->
+
+        <section class="estatisticas">
+
+            <div class="container estatisticas-grid">
+
+                <div class="estatistica">
+
+                    <span class="estatistica-icone">
+                        🦴
+                    </span>
+
+                    <div>
+                        <strong>700+</strong>
+                        <span>espécies conhecidas</span>
+                    </div>
+
+                </div>
+
+
+                <div class="estatistica">
+
+                    <span class="estatistica-icone">
+                        🌎
+                    </span>
+
+                    <div>
+                        <strong>7</strong>
+                        <span>continentes com fósseis</span>
+                    </div>
+
+                </div>
+
+
+                <div class="estatistica">
+
+                    <span class="estatistica-icone">
+                        ⏳
+                    </span>
+
+                    <div>
+                        <strong>230 milhões</strong>
+                        <span>de anos atrás</span>
+                    </div>
+
+                </div>
+
+
+                <div class="estatistica">
+
+                    <span class="estatistica-icone">
+                        ☄️
+                    </span>
+
+                    <div>
+                        <strong>66 milhões</strong>
+                        <span>de anos desde a extinção</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOBRE
+        ================================================== -->
+
+        <section id="sobre" class="secao sobre">
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span>CONHEÇA NOSSO PROJETO</span>
+
+                    <h2>
+                        Uma viagem pelo passado da Terra
+                    </h2>
+
+                    <p>
+                        Prepare-se para conhecer alguns dos animais
+                        mais impressionantes que já caminharam sobre
+                        o nosso planeta.
+                    </p>
+
+                </div>
+
+
+                <div class="sobre-grid">
+
+                    <div class="sobre-imagem">
+
+                        <div class="sobre-card-grande">
+
+                            <div class="sobre-emoji">
+                                🦕
+                            </div>
+
+                            <span>
+                                MILHÕES DE ANOS DE HISTÓRIA
+                            </span>
+
+                        </div>
+
+                        <div class="sobre-folha">
+                            🌿
+                        </div>
+
+                    </div>
+
+
+                    <div class="sobre-texto">
+
+                        <span class="pequeno-titulo">
+                            🧭 COMEÇANDO A EXPLORAÇÃO
+                        </span>
+
+                        <h3>
+                            O que eram os dinossauros?
+                        </h3>
+
+                        <p>
+                            Os dinossauros foram um grupo de répteis
+                            que viveu na Terra durante uma enorme
+                            parte da Era Mesozoica.
+                        </p>
+
+                        <p>
+                            Eles surgiram aproximadamente há
+                            230 milhões de anos e existiram em
+                            diferentes ambientes do planeta.
+                        </p>
+
+                        <p>
+                            Durante milhões de anos, diferentes
+                            espécies desenvolveram características
+                            incríveis para sobreviver em seus
+                            respectivos ambientes.
+                        </p>
+
+
+                        <div class="sobre-lista">
+
+                            <div>
+                                <span>✓</span>
+                                <p>
+                                    Viveram durante milhões de anos
+                                </p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>
+                                    Existiram em diversos continentes
+                                </p>
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                <p>
+                                    Apresentavam tamanhos e formas
+                                    muito diferentes
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DINOSSAUROS
+        ================================================== -->
+
+        <section
+            id="dinossauros"
+            class="secao secao-dinossauros"
+        >
+
+            <div class="container">
+
+                <div class="titulo-secao titulo-branco">
+
+                    <span>OS GRANDES HABITANTES DA TERRA</span>
+
+                    <h2>
+                        Conheça algumas espécies
+                    </h2>
+
+                    <p>
+                        Cada dinossauro possuía características
+                        únicas. Descubra alguns dos mais conhecidos.
+                    </p>
+
+                </div>
+
+
+                <!-- PESQUISA -->
+
+                <div class="pesquisa">
+
+                    <label for="campo-pesquisa">
+                        🔎 Pesquise um dinossauro
+                    </label>
+
+                    <input
+                        type="search"
+                        id="campo-pesquisa"
+                        placeholder="Exemplo: Tiranossauro..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <!-- FILTROS -->
+
+                <div class="filtros">
+
+                    <button
+                        class="filtro ativo"
+                        data-filtro="todos"
+                        type="button"
+                    >
+                        Todos
+                    </button>
+
+                    <button
+                        class="filtro"
+                        data-filtro="carnivoro"
+                        type="button"
+                    >
+                        🥩 Carnívoros
+                    </button>
+
+                    <button
+                        class="filtro"
+                        data-filtro="herbivoro"
+                        type="button"
+                    >
+                        🌿 Herbívoros
+                    </button>
+
+                    <button
+                        class="filtro"
+                        data-filtro="voador"
+                        type="button"
+                    >
+                        🪽 Voadores
+                    </button>
+
+                </div>
+
+
+                <!-- CARDS -->
+
+                <div class="cards-dinossauros">
+
+
+                    <!-- T-REX -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="carnivoro"
+                    >
+
+                        <div class="card-imagem card-trex">
+
+                            <span class="card-emoji">
+                                🦖
+                            </span>
+
+                            <span class="badge">
+                                CARNÍVORO
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                CRETÁCEO
+                            </span>
+
+                            <h3>
+                                Tiranossauro Rex
+                            </h3>
+
+                            <p>
+                                Um dos predadores mais famosos da
+                                história. Possuía uma enorme cabeça,
+                                dentes grandes e uma mordida poderosa.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    📏 ~12 m
+                                </span>
+
+                                <span>
+                                    ⚖️ ~8 toneladas
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- TRICERATOPS -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="herbivoro"
+                    >
+
+                        <div class="card-imagem card-triceratops">
+
+                            <span class="card-emoji">
+                                🦕
+                            </span>
+
+                            <span class="badge">
+                                HERBÍVORO
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                CRETÁCEO
+                            </span>
+
+                            <h3>
+                                Tricerátopo
+                            </h3>
+
+                            <p>
+                                Reconhecido pelos três chifres e
+                                pela grande estrutura óssea localizada
+                                atrás da cabeça.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    📏 ~9 m
+                                </span>
+
+                                <span>
+                                    ⚖️ ~6 toneladas
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- VELOCIRAPTOR -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="carnivoro"
+                    >
+
+                        <div class="card-imagem card-raptor">
+
+                            <span class="card-emoji">
+                                🦖
+                            </span>
+
+                            <span class="badge">
+                                CARNÍVORO
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                CRETÁCEO
+                            </span>
+
+                            <h3>
+                                Velociraptor
+                            </h3>
+
+                            <p>
+                                Um pequeno dinossauro predador,
+                                conhecido por sua agilidade e pela
+                                grande garra em cada pé.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    📏 ~2 m
+                                </span>
+
+                                <span>
+                                    ⚖️ ~15 kg
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BRAQUIOSSAURO -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="herbivoro"
+                    >
+
+                        <div class="card-imagem card-braquio">
+
+                            <span class="card-emoji">
+                                🦕
+                            </span>
+
+                            <span class="badge">
+                                HERBÍVORO
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                JURÁSSICO
+                            </span>
+
+                            <h3>
+                                Braquiossauro
+                            </h3>
+
+                            <p>
+                                Um enorme dinossauro herbívoro com
+                                pescoço comprido que podia alcançar
+                                folhas localizadas em grandes alturas.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    📏 ~25 m
+                                </span>
+
+                                <span>
+                                    ⚖️ ~50 toneladas
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- ESTEGOSSAURO -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="herbivoro"
+                    >
+
+                        <div class="card-imagem card-estego">
+
+                            <span class="card-emoji">
+                                🦕
+                            </span>
+
+                            <span class="badge">
+                                HERBÍVORO
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                JURÁSSICO
+                            </span>
+
+                            <h3>
+                                Estegossauro
+                            </h3>
+
+                            <p>
+                                Possuía grandes placas nas costas e
+                                espinhos na cauda que ajudavam na
+                                defesa contra predadores.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    📏 ~9 m
+                                </span>
+
+                                <span>
+                                    ⚖️ ~4 toneladas
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PTEROSSAURO -->
+
+                    <article
+                        class="card-dino"
+                        data-tipo="voador"
+                    >
+
+                        <div class="card-imagem card-ptero">
+
+                            <span class="card-emoji">
+                                🪽
+                            </span>
+
+                            <span class="badge">
+                                VOADOR
+                            </span>
+
+                        </div>
+
+                        <div class="card-conteudo">
+
+                            <span class="periodo">
+                                MESOZOICO
+                            </span>
+
+                            <h3>
+                                Pterossauro
+                            </h3>
+
+                            <p>
+                                Os pterossauros eram répteis voadores
+                                que viveram na mesma era dos
+                                dinossauros.
+                            </p>
+
+                            <div class="card-info">
+
+                                <span>
+                                    🪽 Voo
+                                </span>
+
+                                <span>
+                                    🌎 Diversas regiões
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="botao-card"
+                                type="button"
+                            >
+                                Saiba mais →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    id="mensagem-pesquisa"
+                    class="mensagem-pesquisa"
+                >
+                    Nenhum dinossauro encontrado.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PERÍODOS
+        ================================================== -->
+
+        <section class="secao periodos">
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span>A ERA DOS DINOSSAUROS</span>
+
+                    <h2>
+                        Uma história dividida em três períodos
+                    </h2>
+
+                    <p>
+                        A Era Mesozoica foi dividida em três grandes
+                        períodos geológicos.
+                    </p>
+
+                </div>
+
+
+                <div class="linha-do-tempo">
+
+
+                    <div class="periodo-card">
+
+                        <div class="periodo-numero">
+                            01
+                        </div>
+
+                        <span class="periodo-data">
+                            252 – 201 milhões de anos
+                        </span>
+
+                        <h3>
+                            Triássico
+                        </h3>
+
+                        <p>
+                            Foi durante esse período que surgiram
+                            os primeiros dinossauros.
+                        </p>
+
+                    </div>
+
+
+                    <div class="periodo-card destaque">
+
+                        <div class="periodo-numero">
+                            02
+                        </div>
+
+                        <span class="periodo-data">
+                            201 – 145 milhões de anos
+                        </span>
+
+                        <h3>
+                            Jurássico
+                        </h3>
+
+                        <p>
+                            Grandes dinossauros herbívoros e
+                            predadores dominaram diversos ambientes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="periodo-card">
+
+                        <div class="periodo-numero">
+                            03
+                        </div>
+
+                        <span class="periodo-data">
+                            145 – 66 milhões de anos
+                        </span>
+
+                        <h3>
+                            Cretáceo
+                        </h3>
+
+                        <p>
+                            Foi o último período da Era Mesozoica,
+                            encerrado pela grande extinção.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURIOSIDADES
+        ================================================== -->
+
+        <section
+            id="curiosidades"
+            class="secao curiosidades"
+        >
+
+            <div class="container">
+
+                <div class="titulo-secao titulo-branco">
+
+                    <span>VOCÊ SABIA?</span>
+
+                    <h2>
+                        Curiosidades incríveis
+                    </h2>
+
+                    <p>
+                        Algumas informações que tornam os
+                        dinossauros ainda mais fascinantes.
+                    </p>
+
+                </div>
+
+
+                <div class="curiosidades-grid">
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            🦴
+                        </span>
+
+                        <h3>
+                            Fósseis
+                        </h3>
+
+                        <p>
+                            Os fósseis são importantes evidências
+                            utilizadas pelos cientistas para estudar
+                            animais e plantas que viveram no passado.
+                        </p>
+
+                    </article>
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            🌎
+                        </span>
+
+                        <h3>
+                            Todos os continentes
+                        </h3>
+
+                        <p>
+                            Fósseis de dinossauros foram encontrados
+                            em diferentes regiões do planeta.
+                        </p>
+
+                    </article>
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            🐦
+                        </span>
+
+                        <h3>
+                            Dinossauros e aves
+                        </h3>
+
+                        <p>
+                            As aves modernas são consideradas
+                            dinossauros avianos e representam uma
+                            linhagem que sobreviveu até os dias atuais.
+                        </p>
+
+                    </article>
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            ☄️
+                        </span>
+
+                        <h3>
+                            O fim de uma era
+                        </h3>
+
+                        <p>
+                            Um grande evento de extinção marcou o
+                            final do Cretáceo e provocou profundas
+                            mudanças nos ecossistemas.
+                        </p>
+
+                    </article>
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            🥚
+                        </span>
+
+                        <h3>
+                            Ovos
+                        </h3>
+
+                        <p>
+                            Diversas espécies de dinossauros
+                            colocavam ovos, e fósseis de ninhos
+                            ajudam a estudar seu comportamento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="curiosidade-card">
+
+                        <span class="curiosidade-icone">
+                            👣
+                        </span>
+
+                        <h3>
+                            Pegadas
+                        </h3>
+
+                        <p>
+                            Além dos ossos, pegadas fossilizadas
+                            podem revelar informações sobre o
+                            deslocamento e o comportamento desses animais.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUIZ
+        ================================================== -->
+
+        <section class="secao quiz">
+
+            <div class="container">
+
+                <div class="quiz-box">
+
+                    <div class="quiz-texto">
+
+                        <span class="pequeno-titulo">
+                            🧠 TESTE SEUS CONHECIMENTOS
+                        </span>
+
+                        <h2>
+                            Você sabe tudo sobre dinossauros?
+                        </h2>
+
+                        <p>
+                            Em uma próxima etapa, podemos transformar
+                            esta seção em um quiz interativo usando
+                            JavaScript.
+                        </p>
+
+                        <button
+                            id="botao-quiz"
+                            class="botao botao-principal"
+                            type="button"
+                        >
+                            Começar desafio
+                        </button>
+
+                    </div>
+
+                    <div class="quiz-icone">
+                        🧠
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONTATO
+        ================================================== -->
+
+        <section
+            id="contato"
+            class="secao contato"
+        >
+
+            <div class="container">
+
+                <div class="titulo-secao">
+
+                    <span>FALE CONOSCO</span>
+
+                    <h2>
+                        Entre em contato
+                    </h2>
+
+                    <p>
+                        Tem uma sugestão para o nosso projeto?
+                        Envie uma mensagem.
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="formulario-contato"
+                    class="formulario"
+                >
+
+                    <div class="campo">
+
+                        <label for="nome">
+                            Nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="mensagem">
+                            Mensagem
+                        </label>
+
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="6"
+                            placeholder="Digite sua mensagem"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="botao botao-principal"
+                    >
+                        Enviar mensagem 🚀
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+
+        <div class="container rodape-grid">
+
+
+            <div class="rodape-coluna">
+
+                <a href="#inicio" class="logo rodape-logo">
+                    🦖
+                    <span>Explora Dinossauros</span>
+                </a>
+
+                <p>
+                    Uma viagem educativa pelo incrível mundo
+                    dos dinossauros e pela história da Terra.
+                </p>
+
+            </div>
+
+
+            <div class="rodape-coluna">
+
+                <h3>
+                    Navegação
+                </h3>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#dinossauros">
+                    Dinossauros
+                </a>
+
+                <a href="#curiosidades">
+                    Curiosidades
+                </a>
+
+            </div>
+
+
+            <div class="rodape-coluna">
+
+                <h3>
+                    Explorar
+                </h3>
+
+                <a href="#dinossauros">
+                    Espécies
+                </a>
+
+                <a href="#curiosidades">
+                    Fatos curiosos
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+
+            <div class="rodape-coluna">
+
+                <h3>
+                    Projeto
+                </h3>
+
+                <p>
+                    Desenvolvido com:
+                </p>
+
+                <div class="tecnologias">
+
+                    <span>HTML</span>
+
+                    <span>CSS</span>
+
+                    <span>JavaScript</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="rodape-final">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Explora o Mundo dos Dinossauros.
+                    Todos os direitos reservados.
+                </p>
+
+                <p>
+                    Projeto educativo
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BOTÃO VOLTAR AO TOPO
+    ====================================================== -->
+
+    <button
+        id="botao-topo"
+        class="botao-topo"
+        type="button"
+        aria-label="Voltar ao topo"
+    >
+        ↑
     </button>
 
-</header>
 
-<section class="banner" id="inicio">
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-    <div class="textoBanner">
-
-        <h1>Bem-vindo ao Mundo dos Dinossauros</h1>
-
-        <p>
-
-            Descubra espécies incríveis que viveram há milhões de anos e conheça suas curiosidades.
-
-        </p>
-
-        <a href="#especies" class="botao">
-
-            Explorar
-
-        </a>
-
-    </div>
-
-</section>
-
-<section class="pesquisa">
-
-    <h2>Pesquisar Dinossauro</h2>
-
-    <input
-        type="text"
-        id="campoPesquisa"
-        placeholder="Digite o nome..."
-    >
-
-</section>
-
-<section id="historia">
-
-    <h2>História</h2>
-
-    <p>
-
-        Os dinossauros dominaram a Terra durante milhões de anos.
-        Eles surgiram no período Triássico e habitaram praticamente todos
-        os continentes.
-
-    </p>
-
-</section>
-
-<section id="especies">
-
-<h2>Espécies</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="img/trex.jpg" alt="Tiranossauro Rex">
-
-<h3>Tiranossauro Rex</h3>
-
-<p>
-
-Um dos maiores predadores terrestres já descobertos.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-<div class="card">
-
-<img src="img/triceratops.jpg" alt="Tricerátopo">
-
-<h3>Tricerátopo</h3>
-
-<p>
-
-Conhecido pelos três grandes chifres e enorme gola óssea.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-<div class="card">
-
-<img src="img/velociraptor.jpg" alt="Velociraptor">
-
-<h3>Velociraptor</h3>
-
-<p>
-
-Pequeno, rápido e extremamente inteligente.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-<div class="card">
-
-<img src="img/braquiossauro.jpg" alt="Braquiossauro">
-
-<h3>Braquiossauro</h3>
-
-<p>
-
-Herbívoro gigante com pescoço extremamente longo.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-<div class="card">
-
-<img src="img/estegossauro.jpg" alt="Estegossauro">
-
-<h3>Estegossauro</h3>
-
-<p>
-
-Possuía placas ósseas nas costas e uma cauda com espinhos.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-<div class="card">
-
-<img src="img/spinossauro.jpg" alt="Espinossauro">
-
-<h3>Espinossauro</h3>
-
-<p>
-
-Maior dinossauro carnívoro conhecido.
-
-</p>
-
-<button>Saiba Mais</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="curiosidades">
-
-<h2>Curiosidades</h2>
-
-<div class="lista">
-
-<div>
-
-<h3>🦴 Fósseis</h3>
-
-<p>
-
-Os fósseis são encontrados em diversos países e ajudam os cientistas
-a reconstruir a história da vida.
-
-</p>
-
-</div>
-
-<div>
-
-<h3>🌍 Extinção</h3>
-
-<p>
-
-A teoria mais aceita afirma que um enorme asteroide atingiu a Terra
-há cerca de 66 milhões de anos.
-
-</p>
-
-</div>
-
-<div>
-
-<h3>🐣 Aves</h3>
-
-<p>
-
-As aves modernas são consideradas descendentes dos dinossauros.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="estatisticas">
-
-<h2>Números Impressionantes</h2>
-
-<div class="numeros">
-
-<div>
-
-<h3>700+</h3>
-
-<p>Espécies Descobertas</p>
-
-</div>
-
-<div>
-
-<h3>230 Milhões</h3>
-
-<p>Anos Atrás</p>
-
-</div>
-
-<div>
-
-<h3>66 Milhões</h3>
-
-<p>Extinção</p>
-
-</div>
-
-<div>
-
-<h3>Todos os Continentes</h3>
-
-<p>Fósseis Encontrados</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contato">
-
-<h2>Contato</h2>
-
-<form>
-
-<input
-type="text"
-placeholder="Nome"
-required>
-
-<input
-type="email"
-placeholder="Email"
-required>
-
-<textarea
-placeholder="Mensagem"></textarea>
-
-<button>
-
-Enviar
-
-</button>
-
-</form>
-
-</section>
-
-<footer>
-
-<h3>
-
-Explora o Mundo dos Dinossauros
-
-</h3>
-
-<p>
-
-Projeto desenvolvido utilizando HTML, CSS e JavaScript.
-
-</p>
-
-<p>
-
-© 2026
-
-</p>
-
-</footer>
-
-<button id="topo">
-
-⬆
-
-</button>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
